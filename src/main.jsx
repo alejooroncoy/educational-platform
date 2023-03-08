@@ -1,7 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./router/App";
-import "./styles/Fe.css";
+import "normalize.css";
+import "./styles/index.scss";
+import "./styles/Fe.scss";
 
 const root = document.getElementById("root");
 
