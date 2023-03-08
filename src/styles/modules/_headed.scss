@@ -1,0 +1,23 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+}
+
+.nav {
+  width: 100%;
+  &-container {
+    @include flex-fd-jc-ai-g(row, flex-start, center);
+    padding: 1rem;
+    box-sizing: border-box;
+    width: min(1024px, 100%);
+    margin: 0 auto;
+  }
+  &__img {
+    width: 6.5rem;
+    height: auto;
+    object-fit: contain;
+  }
+}

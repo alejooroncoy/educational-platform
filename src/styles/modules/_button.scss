@@ -1,0 +1,10 @@
+.button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  &--menu-open {
+    @include tablet {
+      display: none;
+    }
+  }
+}
