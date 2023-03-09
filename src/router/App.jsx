@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Layout from "../layouts/Layout";
-import Courses from "../pages/Courses";
+import Courses, { loaderCourses } from "../pages/Courses";
 import Home from "../pages/Home";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="courses" element={<Courses />} />
+        <Route loader={loaderCourses} path="courses" element={<Courses />} />
       </Route>
     )
   );
