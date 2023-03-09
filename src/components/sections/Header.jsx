@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { HiOutlineShoppingCart } from "react-icons/hi";
-import { BsBell } from "react-icons/bs";
+import { FaRegBell } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import { BiCommentDetail } from "react-icons/bi";
 import Logo from "../../assets/img/logo.png";
@@ -69,7 +69,7 @@ const Header = () => {
             </li>
             <li>
               <Link to="#">
-                <BsBell size={20} color="#676666" />
+                <FaRegBell size={20} color="#676666" />
               </Link>
             </li>
             <li>
