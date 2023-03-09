@@ -3,3 +3,19 @@
   background-color: #e2e8f0;
   flex: 1;
 }
+
+.section {
+  &-container {
+    padding: 1rem;
+    box-sizing: border-box;
+    @include flex-fd-jc-ai-g(column, center, flex-start, 2rem);
+  }
+  &__title {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 500;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}

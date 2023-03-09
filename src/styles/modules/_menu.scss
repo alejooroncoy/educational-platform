@@ -2,12 +2,10 @@
   padding: 0;
   margin: 0;
   list-style: none;
-  position: fixed;
   left: 0;
   top: 0;
   width: 60%;
   height: 100%;
-  background-color: white;
   --transition-value: -100%;
   transform: translate(var(--transition-value));
   transition: transform 0.25s, box-shadow 0.25s, background-color 0.25s;
@@ -15,6 +13,8 @@
   z-index: 3;
 
   &--hamburger {
+    position: fixed;
+    background-color: white;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 1.5rem;
@@ -26,7 +26,7 @@
       flex-direction: row;
       align-items: center;
       padding: 0 1.5rem;
-      background-color: #ffffff80;
+      background-color: #ffffff00;
     }
   }
   &--open {
@@ -42,6 +42,19 @@
     justify-content: flex-end;
   }
 
+  &--features {
+    --transition-value: 0%;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    z-index: 1;
+  }
+  &--stars {
+    --transition-value: 0%;
+    gap: calc(0.0625rem * 2.5);
+    justify-content: flex-start;
+    z-index: 1;
+  }
   &--footer {
     --transition-value: 0%;
     position: static;
@@ -106,7 +119,19 @@
         font-weight: 400;
       }
     }
+    &__feature {
+      color: #797979;
+      font-size: 0.938rem;
+      &--dot {
+        font-size: 1rem;
+        color: #007bff;
+      }
+    }
+    &--stars {
+      @include flex-fd-jc-ai-g;
+    }
   }
+
   &-profile {
     &__avatar {
       border-radius: 50%;
@@ -119,13 +144,13 @@
   opacity: 0;
   background-color: #12121257;
   transition: opacity 0.25s;
-  width: 100%;
-  height: 100%;
   position: fixed;
   left: 0;
   top: 0;
   z-index: -1;
   &--open {
+    width: 100%;
+    height: 100%;
     opacity: 1;
     z-index: 2;
   }

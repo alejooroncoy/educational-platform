@@ -1,0 +1,45 @@
+.card {
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 0.5rem;
+
+  &__header {
+    width: 100%;
+  }
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  &__main {
+    @include flex-fd-jc-ai-g($gap: 0.8rem);
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+  &__title {
+    font-size: 1.063rem;
+    font-weight: 500;
+    margin: 0;
+  }
+  &__subtitle {
+    margin: 0;
+    flex: 100%;
+    font-weight: 600;
+  }
+  &__footer {
+    @include flex-fd-jc-ai-g(row, space-between, center);
+    padding: 0 1rem;
+    background-color: #f7fafc;
+  }
+  &__price {
+    font-weight: 400;
+    color: #313131;
+  }
+}
+
+.cards {
+  width: 100%;
+  box-sizing: border-box;
+  @include flex-fd-jc-ai-g(row, center, center, 2rem);
+  flex-wrap: wrap;
+}
