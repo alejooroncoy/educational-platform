@@ -1,6 +1,6 @@
 import { FaFacebookF } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
-import { AiOutlineGooglePlus } from "react-icons/ai";
+import { AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Curve from "../Curve";
 
@@ -131,7 +131,7 @@ const Footer = () => {
                     className="menu__item__link menu__item__link--footer"
                     href="#"
                   >
-                    <AiOutlineGooglePlus size={25} color="#a0aec0ff" />
+                    <AiOutlineGoogle size={20} color="#a0aec0ff" />
                   </Link>
                 </li>
               </ul>
