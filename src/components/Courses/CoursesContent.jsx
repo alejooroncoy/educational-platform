@@ -1,13 +1,28 @@
 import CoursesList from "./CoursesList";
 
-const CoursesContent = ({ category }) => {
+const CoursesContent = ({ category, filters }) => {
   const categoryTitle = category === "all" ? "All" : category;
 
+  const isValid = (valueCourse, value, name) => {
+    if (name === "stars") return +value <= valueCourse;
+    if (name === "duration") return +value <= valueCourse;
+    if (name === "course-type")
+      return value === "free" ? valueCourse === "free" : valueCourse !== "free";
+    return (
+      (typeof valueCourse === "string"
+        ? valueCourse
+        : String(valueCourse)
+      ).toLowerCase() === value?.toLowerCase()
+    );
+  };
   return (
-    <section className="section">
-      <div className="section-container">
+    <section className="section section--courses">
+      <div className="section-container section-container--courses">
         <h2 className="section__title">{categoryTitle} Courses</h2>
-        <CoursesList category={category} />
+        <p className="section__paragraph section__paragraph--courses">
+          choose from +10.000 courses with new additions published every months
+        </p>
+        <CoursesList filters={filters} category={category} isValid={isValid} />
       </div>
     </section>
   );

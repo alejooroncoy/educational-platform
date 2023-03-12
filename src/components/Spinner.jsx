@@ -2,7 +2,6 @@ const Spinner = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     style={{
-      margin: "auto",
       background: "0 0",
       display: "block",
       shapeRendering: "auto",
@@ -11,6 +10,7 @@ const Spinner = (props) => (
     height={props.height || 200}
     viewBox="0 0 100 100"
     preserveAspectRatio="xMidYMid"
+    className={props.className}
   >
     <circle
       cx={50}

@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="nav">
-        <div className="nav-container">
+        <div className="container nav-container">
           <button onClick={openMenu} className="button button--menu-open">
             <FiMenu size={20} />
           </button>

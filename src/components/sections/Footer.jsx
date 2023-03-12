@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="footer">
       <Curve rotate color="#e2e8f0" />
       <nav className="nav nav--footer">
-        <div className="nav-container nav-container--footer">
+        <div className="container nav-container nav-container--footer">
           <p className="nav__about">
             <span className="nav__about nav__about--courses">Courster</span> is
             a unique and beautiful collection of UI elements that are all
