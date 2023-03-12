@@ -20,8 +20,8 @@
 
 @mixin animation-nm-ts-dr-tf(
   $name,
-  $duration: 0.3s,
   $times: 1,
+  $duration: 0.3s,
   $timing-function: linear
 ) {
   animation: $name $times $duration $timing-function;

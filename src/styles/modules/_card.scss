@@ -2,12 +2,27 @@
   background-color: #fff;
   overflow: hidden;
   border-radius: 0.5rem;
-
+  &-container {
+    display: grid;
+    text-decoration: none;
+    color: #313131;
+    @include laptop {
+      grid-template-columns: 35% 1fr;
+      grid-template-areas:
+        "header main"
+        "header footer";
+      grid-auto-flow: row;
+    }
+  }
   &__header {
     width: 100%;
+    @include laptop {
+      grid-area: header;
+    }
   }
   &__img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
   }
@@ -15,6 +30,11 @@
     @include flex-fd-jc-ai-g($gap: 0.8rem);
     flex-wrap: wrap;
     padding: 1rem;
+    @include laptop {
+      grid-area: main;
+      padding: 2rem 2rem 0.8rem 2rem;
+      gap: 1rem;
+    }
   }
   &__title {
     font-size: 1.063rem;
@@ -25,15 +45,89 @@
     margin: 0;
     flex: 100%;
     font-weight: 600;
+    @include laptop {
+      flex: 1;
+    }
+  }
+  &__paragraph {
+    margin: 0;
+    color: #7d7d7d;
+    display: none;
+    @include tablet {
+      display: block;
+    }
   }
   &__footer {
     @include flex-fd-jc-ai-g(row, space-between, center);
-    padding: 0 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
     background-color: #f7fafc;
+    width: 100%;
+    @include laptop {
+      grid-area: footer;
+      background-color: transparent;
+      padding: 0 2rem 2rem 2rem;
+    }
   }
   &__price {
     font-weight: 400;
+    margin: 0;
     color: #313131;
+    @include laptop {
+      display: none;
+    }
+  }
+  &__level {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #718096;
+    flex: 1;
+    @include flex-fd-jc-ai-g($gap: 0.5rem);
+    display: none;
+    @include laptop {
+      display: flex;
+    }
+  }
+  @include tablet {
+    flex: calc(100% / 3);
+    &:last-of-type:nth-child(odd) &-container {
+      flex: auto;
+      grid-template-columns: 35% 1fr;
+      grid-template-areas:
+        "header main"
+        "header footer";
+      grid-auto-flow: row;
+      .card__header {
+        grid-area: header;
+      }
+      .card__main {
+        grid-area: main;
+        padding: 2rem 2rem 0.8rem 2rem;
+        gap: 1rem;
+      }
+      .card__footer {
+        grid-area: footer;
+        background-color: transparent;
+        padding: 0 2rem 2rem 2rem;
+      }
+      .card__price {
+        display: none;
+      }
+      .card__subtitle {
+        flex: 1;
+      }
+      .card__level {
+        display: flex;
+      }
+      .menu--features {
+        width: auto;
+        flex: 1.8;
+      }
+    }
+    @include laptop {
+      flex: auto;
+    }
   }
 }
 

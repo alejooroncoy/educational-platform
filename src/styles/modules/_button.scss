@@ -7,4 +7,27 @@
       display: none;
     }
   }
+  &--select {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.12);
+    color: #808080;
+    font-weight: 500;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+    font-size: 1rem;
+    text-align: start;
+    box-sizing: content-box;
+    min-width: 10.8rem;
+    @include flex-fd-jc-ai-g(row, space-between, center, 0.8rem);
+    transition: box-shadow 0.25s, border-radius 0.25s;
+  }
+  &__arrow {
+    transition: transform 0.25s;
+    @include flex-fd-jc-ai-g(row, center, center);
+    &--open {
+      transform: rotate(180deg);
+    }
+  }
 }

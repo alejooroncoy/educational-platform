@@ -9,7 +9,26 @@
     padding: 1rem;
     box-sizing: border-box;
     @include flex-fd-jc-ai-g(column, center, flex-start, 2rem);
+    &--courses {
+      gap: 0.5rem;
+      @include tablet {
+        padding: 3rem 2rem;
+      }
+      @include laptop {
+        padding: 5rem 2rem 3rem 2rem;
+      }
+    }
+    &--filter {
+      gap: 1rem;
+      &:first-child {
+        gap: 0rem;
+        .section__title {
+          margin-bottom: 1rem;
+        }
+      }
+    }
   }
+
   &__title {
     margin: 0;
     font-size: 1.6rem;
@@ -17,5 +36,53 @@
     &::first-letter {
       text-transform: uppercase;
     }
+    &--filter {
+      font-size: 1rem;
+    }
+  }
+  &__paragraph {
+    margin: 0;
+    font-size: 1rem;
+    &--courses {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+  }
+  &--courses {
+    position: relative;
+    min-height: 100vh;
+    @include laptop {
+      flex: auto;
+    }
+  }
+}
+
+.container {
+  width: min(100%, 1280px);
+  margin: auto;
+  &--courses {
+    @include flex-fd-jc-ai-g(row, center, flex-start, 2rem);
+  }
+  &--select {
+    position: relative;
+    &:has(> .menu--categories-open) {
+      .button--select {
+        box-shadow: 0 0px 4px 0px rgba(0, 0, 0, 0.12);
+        border-radius: 0.25rem 0.25rem 0 0;
+        position: relative;
+      }
+    }
+  }
+}
+
+.aside {
+  display: none;
+  height: 100%;
+  &-container {
+    height: 100%;
+    padding-top: 5rem;
+  }
+  @include laptop {
+    display: block;
   }
 }
