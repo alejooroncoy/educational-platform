@@ -1,4 +1,5 @@
 export default function getStars(course) {
+  if (!course) return;
   let starsComplete = Math.trunc(course.stars);
   let starsHalf = 0;
   const decimal = course.stars - starsComplete;
