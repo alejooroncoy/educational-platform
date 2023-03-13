@@ -3,11 +3,15 @@ import CoursesList from "./CoursesList";
 const CoursesContent = ({ category, filters }) => {
   const categoryTitle = category === "all" ? "All" : category;
 
-  const isValid = (valueCourse, value, name) => {
+  const isValid = (valueCourse, value, name, course) => {
     if (name === "stars") return +value <= valueCourse;
     if (name === "duration") return +value <= valueCourse;
-    if (name === "course-type")
-      return value === "free" ? valueCourse === "free" : valueCourse !== "free";
+    if (name === "course-type") {
+      const valueCoursePrice = Reflect.get(course, "price");
+      return value === "free"
+        ? valueCoursePrice === "free"
+        : valueCoursePrice !== "free";
+    }
     return (
       (typeof valueCourse === "string"
         ? valueCourse

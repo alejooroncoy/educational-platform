@@ -2,7 +2,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import Curve from "../Curve";
+import Curve from "../shared/Curve";
 
 const Footer = () => {
   return (

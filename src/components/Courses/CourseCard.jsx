@@ -1,7 +1,7 @@
-import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import getStars from "../../utils/getStars";
+import Stars from "../shared/Stars";
 
 const CourseCard = ({ course }) => {
   const stars = getStars(course);
@@ -43,24 +43,9 @@ const CourseCard = ({ course }) => {
           <h6 className="card__level">
             <GiSettingsKnobs size={15} color="#718096" /> {course.level} level
           </h6>
-          <ul className="menu menu--stars" aria-label="Stars">
-            {stars.map((startStatus) => (
-              <li
-                key={crypto.randomUUID()}
-                className="menu__item menu__item--stars"
-              >
-                {startStatus === "complete" ? (
-                  <FaStar color="#febe42" />
-                ) : startStatus === "half" ? (
-                  <FaStarHalfAlt color="#febe42" />
-                ) : (
-                  <FaRegStar color="#febe42" />
-                )}
-              </li>
-            ))}
-          </ul>
+          <Stars className="card" stars={stars} aria-label="Stars" />
           <h3 className="card__price">
-            z{course.price === "free" ? "Free" : `$${course.price}`}
+            {course.price === "free" ? "Free" : `$${course.price}`}
           </h3>
         </footer>
       </Link>
