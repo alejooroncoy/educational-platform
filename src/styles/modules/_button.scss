@@ -23,6 +23,56 @@
     @include flex-fd-jc-ai-g(row, space-between, center, 0.8rem);
     transition: box-shadow 0.25s, border-radius 0.25s;
   }
+  &--basket {
+    background-color: #fed7d7;
+    border-radius: 50%;
+    width: 2.15rem;
+    height: 2.15rem;
+    @include flex-fd-jc-ai-g(row, center, center);
+  }
+  &--start-course {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    background-color: #48bb78;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+  &--topic {
+    background-color: #fff;
+    color: #666;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 0.25rem;
+    @include flex-fd-jc-ai-g(row, space-between, center);
+    transition: box-shadow 0.25s;
+    &:hover {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    & .line {
+      width: calc(0.0625rem * 1);
+      background-color: #666;
+      height: 0.8rem;
+      position: relative;
+      transition: height 0.25s;
+      &::before {
+        content: "";
+        inset: 0;
+        margin: auto;
+        position: absolute;
+        width: calc(0.0625rem * 1);
+        height: 0.8rem;
+        transform: rotate(90deg);
+        background-color: #666;
+      }
+    }
+    &-open .line {
+      height: 0rem;
+    }
+  }
   &__arrow {
     transition: transform 0.25s;
     @include flex-fd-jc-ai-g(row, center, center);

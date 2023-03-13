@@ -2,6 +2,7 @@
   background-color: #fff;
   overflow: hidden;
   border-radius: 0.5rem;
+  transition: transform 0.25s;
   &-container {
     display: grid;
     text-decoration: none;
@@ -128,6 +129,9 @@
     @include laptop {
       flex: auto;
     }
+  }
+  &:active {
+    transform: scale(1.025) rotate(-0.5deg);
   }
 }
 
