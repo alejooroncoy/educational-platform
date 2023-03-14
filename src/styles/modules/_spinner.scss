@@ -4,6 +4,11 @@
     margin: auto;
     position: absolute;
     @include flex-fd-jc-ai-g(column, center, center, 1rem);
+    &--course {
+      position: fixed;
+      background-color: rgb(226, 232, 240);
+      z-index: 3;
+    }
   }
   &__title {
     margin: 0;

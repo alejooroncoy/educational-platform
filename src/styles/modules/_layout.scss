@@ -105,4 +105,17 @@
   @include tablet {
     display: block;
   }
+  &--nav {
+    display: block;
+    transform: translateX(-125%);
+    transition: transform 0.25s;
+    padding-bottom: 1.5rem;
+    & .aside-container {
+      padding-top: 1rem;
+      overflow: auto;
+    }
+    @include tablet {
+      display: none;
+    }
+  }
 }

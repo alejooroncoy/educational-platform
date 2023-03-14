@@ -20,6 +20,7 @@
     padding: 1.5rem;
     box-sizing: content-box;
     flex-direction: column;
+    overflow-y: auto;
     @include tablet {
       --transition-value: 0;
       position: static;
@@ -32,6 +33,10 @@
   &--open {
     --transition-value: 0;
     box-shadow: 0 0rem 1rem 0.25rem rgb(107 107 107);
+    transition: box-shadow 0.25s;
+    @include laptop {
+      box-shadow: 0 0 0 0 #ffffff00;
+    }
   }
   &--course {
     --transition-value: 0%;
@@ -75,16 +80,6 @@
     transition: max-height 0.25s, padding 0.25s, box-shadow 0.25s;
     position: absolute;
     top: 100%;
-    &.menu--nav {
-      --transition-value: -125%;
-      padding: 0;
-      box-shadow: none;
-      max-height: initial;
-      position: static;
-      @include tablet {
-        display: none;
-      }
-    }
     &-open {
       padding: 2rem 1rem;
       max-height: 10rem;
@@ -237,9 +232,8 @@
         font-weight: 400;
       }
       &--categories {
-        &-nav + .menu--categories {
-          --transition-value: 0;
-          padding: 0 1rem;
+        &-nav + .aside--nav {
+          transform: translateX(0);
         }
         &:hover {
           color: #2a41e8;
