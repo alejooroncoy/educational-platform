@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { FaRegBell } from "react-icons/fa";
@@ -6,8 +6,10 @@ import { FiMenu } from "react-icons/fi";
 import { BiCommentDetail } from "react-icons/bi";
 import Logo from "../../assets/img/logo.png";
 import AvatarImg from "../../assets/img/avatars/avatar-1.jpg";
+import CoursesFilters from "../Courses/CoursesFilters";
 
 const Header = () => {
+  const [isLaptop, setLaptop] = useState(false);
   const menu = useRef();
   const overlay = useRef();
   const location = useLocation();
@@ -22,20 +24,17 @@ const Header = () => {
     overlay.current.classList.remove("overlay--open");
   };
 
-  const categories = [
-    {
-      text: "All Categories",
-      value: "all",
-    },
-    {
-      text: "Web Development",
-      value: "web-development",
-    },
-    {
-      text: "Mobile App",
-      value: "mobile-app",
-    },
-  ];
+  useEffect(() => {
+    const handleWindowResize = () => {
+      if (window.innerWidth >= 1024) {
+        setLaptop(true);
+        return;
+      }
+      setLaptop(false);
+    };
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -77,24 +76,12 @@ const Header = () => {
               >
                 Courses
               </NavLink>
-              <ul className="menu menu--categories menu--nav">
-                {categories.map((category) => {
-                  search.set("category", category.value);
-                  return (
-                    <li
-                      key={crypto.randomUUID()}
-                      className="menu__item menu__item--categories"
-                    >
-                      <Link
-                        className="menu__item__link menu__item__link--categories"
-                        to={`/courses?${search.toString()}`}
-                      >
-                        {category.text}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
+              {!isLaptop && (
+                <CoursesFilters
+                  className="aside--nav"
+                  category={search.get("category")}
+                />
+              )}
             </li>
           </ul>
           <ul className="menu menu--profile">

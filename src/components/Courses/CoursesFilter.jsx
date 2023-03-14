@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { createElement, useEffect, useRef, useState } from "react";
+import { createElement, useLayoutEffect, useRef, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -18,7 +18,7 @@ const FilterOption = ({ type, option, className, as = "li", name }) => {
   };
   if (type === "radio")
     return (
-      <label className={className} htmlFor={value}>
+      <motion.label key={option.id} className={className} htmlFor={value}>
         <motion.input
           onChange={changeOption}
           className={className && `${className}__input`}
@@ -47,7 +47,7 @@ const FilterOption = ({ type, option, className, as = "li", name }) => {
           }}
         />
         <span className={className && `${className}__text`}>{child}</span>
-      </label>
+      </motion.label>
     );
   if (type === "select")
     return createElement(as, {
@@ -75,15 +75,17 @@ const Filter = ({
     menu.current.classList.toggle("menu--categories-open");
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const search = new URLSearchParams(location.search.replace("?", ""));
     const value = search.get(name);
     setOptions(
-      options.map((option) => ({
-        ...option,
-        checked: value ? value === String(option.value) : option.checked,
-        lastChecked: option.checked,
-      }))
+      options.map((option) => {
+        return {
+          ...option,
+          checked: value ? value === String(option.value) : option.checked,
+          lastChecked: option.checked,
+        };
+      })
     );
   }, [location]);
 
@@ -105,7 +107,7 @@ const Filter = ({
     return (
       <div className="container container--select">
         <button onClick={toogleMenu} className={className}>
-          {options?.find((option) => option.checked).text}
+          {options?.find((option) => option.checked)?.text}
           <div ref={arrowSelect} className="button__arrow">
             <IoMdArrowDropdown />
           </div>

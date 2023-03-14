@@ -2,7 +2,7 @@ import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import CoursesFilter from "./CoursesFilter";
 
-const CoursesFilters = ({ category: categoryName }) => {
+const CoursesFilters = ({ category: categoryName, className }) => {
   const location = useLocation();
   const search = new URLSearchParams(location.search.replace("?", ""));
   const categories = [
@@ -20,7 +20,7 @@ const CoursesFilters = ({ category: categoryName }) => {
     },
   ];
   return (
-    <aside className="aside">
+    <aside className={"aside".concat(className ? ` ${className}` : "")}>
       <div className="aside-container">
         <CoursesFilter
           title="Categories"
@@ -37,8 +37,7 @@ const CoursesFilters = ({ category: categoryName }) => {
               child: (
                 <Link
                   className="menu__item__link menu__item__link--categories"
-                  to={`./?${search.toString()}`}
-                  relative
+                  to={`/courses/?${search.toString()}`}
                 >
                   {category.text}
                 </Link>
