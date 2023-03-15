@@ -1,10 +1,11 @@
-import { redirect, useOutlet, useParams } from "react-router-dom";
+import { redirect, useLocation, useParams } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import CourseNav from "../components/Course/CourseNav";
 import CoursesHero from "../components/Course/CourseHero";
 import { useEffect, useState } from "react";
 import Spinner from "../components/shared/Spinner";
+import AnimatedOutlet from "../components/shared/AnimatedOutlet";
 
 export const loaderCourse = ({ request, params }) => {
   const url = new URL(request.url);
@@ -18,7 +19,7 @@ const Course = () => {
   const { id } = useParams();
   const [course, setCourse] = useState({});
   const [loading, setLoading] = useState(true);
-  const outlet = useOutlet(course);
+  const location = useLocation();
 
   const getCourse = async () => {
     const response = await fetch(
@@ -72,7 +73,17 @@ const Course = () => {
         >
           <CoursesHero course={course} />
           <CourseNav />
-          <AnimatePresence>{outlet}</AnimatePresence>
+          <AnimatePresence mode="popLayout">
+            <motion.section
+              className="section"
+              key={location.key}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 50 }}
+            >
+              <AnimatedOutlet value={course} />
+            </motion.section>
+          </AnimatePresence>
         </motion.main>
       )}
     </AnimatePresence>

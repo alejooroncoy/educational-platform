@@ -47,7 +47,8 @@
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     border-radius: 0.25rem;
     @include flex-fd-jc-ai-g(row, space-between, center);
-    transition: box-shadow 0.25s;
+    transition: box-shadow 0.25s, border-radius 0.25s;
+
     &:hover {
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
         0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -69,8 +70,12 @@
         background-color: #666;
       }
     }
-    &-open .line {
-      height: 0rem;
+    &-open {
+      border-radius: 0.25rem 0.25rem 0 0;
+      box-shadow: 0 0px 4px 0px rgba(0, 0, 0, 0.12);
+      .line {
+        height: 0rem;
+      }
     }
   }
   &__arrow {
