@@ -5,7 +5,7 @@ import AnimatedOutlet from "../components/shared/AnimatedOutlet";
 const Auth = () => {
   const location = useLocation();
   return (
-    <main className="main">
+    <main className="main main--auth">
       <AnimatePresence mode="popLayout">
         <motion.section
           className="auth"
