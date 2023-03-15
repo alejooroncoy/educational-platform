@@ -12,6 +12,7 @@ const CourseCard = ({ course }) => {
           <img
             className="card__img"
             width={340}
+            height={178}
             src={course.img}
             alt={`Course ${course.title}`}
           />
