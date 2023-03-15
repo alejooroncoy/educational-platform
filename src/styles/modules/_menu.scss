@@ -33,7 +33,6 @@
   &--open {
     --transition-value: 0;
     box-shadow: 0 0rem 1rem 0.25rem rgb(107 107 107);
-    transition: box-shadow 0.25s;
     @include laptop {
       box-shadow: 0 0 0 0 #ffffff00;
     }
@@ -44,7 +43,8 @@
     padding: 0.5rem 0;
     align-items: center;
     justify-content: space-evenly;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0.0625rem 0.188rem 0 rgba(0, 0, 0, 0.1),
+      0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.06);
     &-hero {
       flex-wrap: wrap;
       gap: 1rem 0.5rem;
@@ -71,7 +71,7 @@
     max-width: 10.8rem;
     align-items: flex-start;
     z-index: 1;
-    box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0.125rem 0.25rem 0px rgba(0, 0, 0, 0.12);
     max-height: 0;
     padding: 0 1rem;
     background-color: #fff;
@@ -83,7 +83,7 @@
     &-open {
       padding: 2rem 1rem;
       max-height: 18rem;
-      box-shadow: 0 4px 4px 0px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 0.25rem 0.25rem 0px rgba(0, 0, 0, 0.12);
     }
   }
 

@@ -35,8 +35,8 @@
     height: 15.625rem;
     object-fit: cover;
     border-radius: 0.5rem;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1.25rem 1.563rem -0.313rem rgba(0, 0, 0, 0.1),
+      0 0.625rem 0.625rem -0.313rem rgba(0, 0, 0, 0.04);
     @include laptop {
       grid-area: prev;
     }

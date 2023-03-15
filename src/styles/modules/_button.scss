@@ -10,7 +10,7 @@
   &--select {
     padding: 1rem;
     border-radius: 0.25rem;
-    box-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0.0625rem 0.25rem 0px rgba(0, 0, 0, 0.12);
     color: #808080;
     font-weight: 500;
     background-color: #fff;
@@ -44,17 +44,18 @@
     width: 100%;
     padding: 1rem 1.5rem;
     font-weight: 600;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0.0625rem 0.188rem 0 rgba(0, 0, 0, 0.1),
+      0 0.0625rem 0.188rem 0 rgba(0, 0, 0, 0.06);
     border-radius: 0.25rem;
     @include flex-fd-jc-ai-g(row, space-between, center);
     transition: box-shadow 0.25s, border-radius 0.25s;
 
     &:hover {
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1),
+        0 0.125rem 0.25rem -0.025rem rgba(0, 0, 0, 0.06);
     }
     & .line {
-      width: calc(0.0625rem * 1);
+      width: 0.0625rem;
       background-color: #666;
       height: 0.8rem;
       position: relative;
@@ -72,10 +73,26 @@
     }
     &-open {
       border-radius: 0.25rem 0.25rem 0 0;
-      box-shadow: 0 0px 4px 0px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 0px 0.25rem 0px rgba(0, 0, 0, 0.12);
       .line {
         height: 0rem;
       }
+    }
+  }
+  &--form {
+    background-color: #2a41e8;
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0.688rem 1.125rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(42, 65, 232, 0.15);
+    transition: transform 0.25s;
+    &:active {
+      transform: scale(0.95);
+    }
+    @include tablet {
+      margin-left: auto;
     }
   }
   &__arrow {
