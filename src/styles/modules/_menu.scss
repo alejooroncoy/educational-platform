@@ -37,6 +37,10 @@
       box-shadow: 0 0 0 0 #ffffff00;
     }
   }
+  &--sidebar {
+    --transition-value: 0%;
+    // background-color: #000;
+  }
   &--course {
     --transition-value: 0%;
     background-color: #fff;
@@ -121,7 +125,7 @@
     gap: calc(0.0625rem * 2.5);
     justify-content: flex-start;
     z-index: 1;
-    &.card {
+    &.card-stars {
       &::before {
         content: "Stars:";
         font-size: 0.875rem;
@@ -232,6 +236,7 @@
         font-weight: 400;
       }
       &--categories {
+        transition: color 0.25s;
         &-nav + .aside--nav {
           transform: translateX(0);
         }
@@ -284,6 +289,8 @@
       @include flex-fd-jc-ai-g(row, center, center);
     }
     &--categories {
+      transition: color 0.25s;
+
       &:hover {
         color: #2a41e8;
       }
@@ -323,5 +330,11 @@
   }
   @include laptop {
     display: none;
+  }
+  &--modal {
+    @include flex-fd-jc-ai-g(row, center, center);
+  }
+  &--modal.overlay--open {
+    z-index: 3;
   }
 }

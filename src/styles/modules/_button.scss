@@ -79,7 +79,8 @@
       }
     }
   }
-  &--form {
+  &--form,
+  &--form-course {
     background-color: #2a41e8;
     color: #fff;
     font-size: 1rem;
@@ -93,6 +94,12 @@
     }
     @include tablet {
       margin-left: auto;
+    }
+  }
+
+  &--form-course {
+    @include tablet {
+      margin-left: 0;
     }
   }
   &__arrow {

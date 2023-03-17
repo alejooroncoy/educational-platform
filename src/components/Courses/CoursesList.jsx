@@ -1,21 +1,16 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import useCourses from "../../hooks/useCourses";
 import Spinner from "../shared/Spinner";
 import SvgEmpty from "../Svgr/SvgEmpty";
 import CourseCard from "./CourseCard";
 
 const CoursesList = ({ category, filters, isValid }) => {
-  const [loading, setLoading] = useState(true);
-  const [courses, setCourses] = useState([]);
+  const { loading, courses, getCourses } = useCourses(
+    `https://apimocha.com/education-platform/courses/${category}`
+  );
   const [coursesFiltered, setCoursesFiltered] = useState([]);
-  const getCourses = async () => {
-    const response = await fetch(
-      `https://apimocha.com/education-platform/courses/${category}`
-    );
-    const data = await response.json();
-    setCourses(data);
-    setLoading(false);
-  };
+
   const loadFilters = () => {
     setCoursesFiltered(
       courses.filter((course) => {
@@ -32,7 +27,6 @@ const CoursesList = ({ category, filters, isValid }) => {
     );
   };
   useEffect(() => {
-    setLoading(true);
     getCourses();
   }, [category]);
   useEffect(() => {

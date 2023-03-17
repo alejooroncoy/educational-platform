@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import getStars from "../../utils/getStars";
 import Stars from "../shared/Stars";
 
-const CourseCard = ({ course }) => {
+const CourseCard = ({ course, Container = Link }) => {
   const stars = getStars(course);
   return (
     <article className="card">
-      <Link className="card-container" to={`/course/${course.id}`}>
+      <Container className="card-container" to={`/course/${course.id}`}>
         <header className="card__header">
           <img
             className="card__img"
@@ -44,12 +44,12 @@ const CourseCard = ({ course }) => {
           <h6 className="card__level">
             <GiSettingsKnobs size={15} color="#718096" /> {course.level} level
           </h6>
-          <Stars className="card" stars={stars} aria-label="Stars" />
+          <Stars className="card-stars" stars={stars} aria-label="Stars" />
           <h3 className="card__price">
             {course.price === "free" ? "Free" : `$${course.price}`}
           </h3>
         </footer>
-      </Link>
+      </Container>
     </article>
   );
 };

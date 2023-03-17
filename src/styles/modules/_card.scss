@@ -3,10 +3,25 @@
   overflow: hidden;
   border-radius: 0.5rem;
   transition: transform 0.25s;
+  &--add {
+    background-color: rgba(255, 255, 255, 0.25);
+    width: 100%;
+    cursor: pointer;
+    height: 22.795rem;
+
+    @include tablet {
+      height: auto;
+      align-self: stretch;
+    }
+  }
   &-container {
     display: grid;
     text-decoration: none;
     color: #313131;
+    &--add {
+      height: 100%;
+    }
+
     @include laptop {
       grid-template-columns: 35% 1fr;
       grid-template-areas:
@@ -36,11 +51,24 @@
       padding: 2rem 2rem 0.8rem 2rem;
       gap: 1rem;
     }
+    &--add {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @include laptop {
+        grid-area: auto;
+        grid-column: 1 / -1;
+        padding: 1.5rem;
+      }
+    }
   }
   &__title {
     font-size: 1.063rem;
     font-weight: 500;
     margin: 0;
+    &--add {
+      font-size: 1.25rem;
+    }
   }
   &__subtitle {
     margin: 0;

@@ -94,6 +94,18 @@
       text-decoration: none;
     }
   }
+  &__textarea {
+    background-color: #fff;
+    @include flex-fd-jc-ai-g(row, flex-start, center, 0.25rem);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.0265rem 0.25rem 0 rgba(0, 0, 0, 0.12);
+    padding: 0.8rem;
+    color: #666;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 5rem;
+    resize: none;
+  }
 }
 
 @keyframes scale-checked {

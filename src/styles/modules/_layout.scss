@@ -94,6 +94,9 @@
       }
     }
   }
+  &--admin {
+    @include flex-fd-jc-ai-g(row, center, flex-start, 2rem);
+  }
 }
 
 .aside {
@@ -102,6 +105,9 @@
   &-container {
     height: 100%;
     padding-top: 5rem;
+    &--sidebar {
+      color: #fff;
+    }
   }
   @include tablet {
     display: block;

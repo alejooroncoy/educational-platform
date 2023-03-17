@@ -16,6 +16,8 @@ import CourseCurriculum from "../components/Course/CourseCurriculum";
 import Login, { actionLogin } from "../pages/Auth/Login";
 import Register, { actionRegister } from "../pages/Auth/Register";
 import Auth from "../pages/Auth";
+import Admin from "../pages/Admin";
+import AdminCourses from "../components/Admin/AdminCourses";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -37,6 +39,9 @@ const App = () => {
             path="register"
             element={<Register />}
           />
+        </Route>
+        <Route path="admin" element={<Admin />}>
+          <Route path="courses" element={<AdminCourses />} />
         </Route>
       </Route>
     )
