@@ -9,8 +9,8 @@ const CoursesContent = ({ category, filters }) => {
     if (name === "course-type") {
       const valueCoursePrice = Reflect.get(course, "price");
       return value === "free"
-        ? valueCoursePrice === "free"
-        : valueCoursePrice !== "free";
+        ? valueCoursePrice === "free" || +valueCoursePrice <= 0
+        : +valueCoursePrice > 0;
     }
     return (
       (typeof valueCourse === "string"

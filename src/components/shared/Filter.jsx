@@ -1,16 +1,16 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useLocation } from "react-router-dom";
 import FilterOption from "./FilterOption";
 
 const Filter = ({
   type,
+  dataOfURL = true,
   options: optionsGetted,
   className,
   optionClassName,
   classNameList,
-  handleChangeOption,
-  deps,
+  option,
   name,
 }) => {
   const arrowSelect = useRef();
@@ -36,15 +36,31 @@ const Filter = ({
       })
     );
   };
-  const depsEffect = handleChangeOption ? deps : location;
+
+  const handleChangeOption = () => {
+    setOptions(
+      options.map((opt) => ({
+        ...opt,
+        checked: opt.value === option,
+      }))
+    );
+  };
+
+  const depsEffect = !dataOfURL ? option : location;
   useLayoutEffect(() => {
-    if (handleChangeOption) handleChangeOption(setOptions);
+    if (!dataOfURL) handleChangeOption();
     else handleChangeOptionDefault();
   }, [depsEffect]);
 
+  useEffect(() => {
+    setOptions((prevOptions) =>
+      !prevOptions?.length ? optionsGetted : prevOptions
+    );
+  }, [optionsGetted]);
+
   if (type === "radio")
     return (
-      <form className={className}>
+      <div className={className}>
         {options?.map((option) => (
           <FilterOption
             className={optionClassName}
@@ -54,14 +70,16 @@ const Filter = ({
             name={name}
           />
         ))}
-      </form>
+      </div>
     );
   if (type === "select") {
     const optionChecked = options?.find((option) => option.checked);
     return (
       <div className="container container--select">
-        <button onClick={toggleMenu} className={className}>
-          {optionChecked?.text || optionChecked?.child}
+        <button type="button" onClick={toggleMenu} className={className}>
+          {optionChecked?.text || optionChecked?.child || (
+            <span>Without option selected</span>
+          )}
           <div ref={arrowSelect} className="button__arrow">
             <IoMdArrowDropdown />
           </div>

@@ -10,14 +10,14 @@ const CourseHero = ({ course }) => {
   return (
     <article
       style={{
-        backgroundImage: `url(${course.banner})`,
+        backgroundImage: `url(${course.banner || course.img})`,
       }}
       className="hero"
     >
       <div className="hero-container">
         <img
           className="hero__img"
-          src={course.banner}
+          src={course.banner || course.img}
           alt={`Previus ${course.title} course`}
         />
         <h3 className="hero__subtitle">{category}</h3>

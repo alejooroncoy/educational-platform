@@ -98,9 +98,49 @@
   }
 
   &--form-course {
+    flex: 100%;
     @include tablet {
       margin-left: 0;
     }
+  }
+
+  &--modal-exit {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.25rem;
+  }
+
+  &--option {
+    width: 100%;
+    @include flex-fd-jc-ai-g(row, flex-start, center, 0.25rem);
+  }
+
+  &--create {
+    text-decoration: none;
+    background-color: rgba(42, 65, 232, 1);
+  }
+
+  &--edit,
+  &--delete {
+    width: 3rem;
+    height: 3rem;
+    @include flex-fd-jc-ai-g(row, center, center, 0.25rem);
+
+    border-radius: 50%;
+    transition: transform 0.25s;
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+  &--edit {
+    background-color: rgb(86, 228, 116);
+  }
+  &--delete {
+    background-color: rgb(228, 88, 86);
+  }
+
+  &__text {
+    @include flex-fd-jc-ai-g(row, flex-start, center, 0.25rem);
   }
   &__arrow {
     transition: transform 0.25s;

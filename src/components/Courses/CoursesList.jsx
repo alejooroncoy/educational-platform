@@ -7,7 +7,7 @@ import CourseCard from "./CourseCard";
 
 const CoursesList = ({ category, filters, isValid }) => {
   const { loading, courses, getCourses } = useCourses(
-    `https://apimocha.com/education-platform/courses/${category}`
+    `http://127.0.0.1:5000/curso`
   );
   const [coursesFiltered, setCoursesFiltered] = useState([]);
 

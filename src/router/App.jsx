@@ -18,6 +18,9 @@ import Register, { actionRegister } from "../pages/Auth/Register";
 import Auth from "../pages/Auth";
 import Admin from "../pages/Admin";
 import AdminCourses from "../components/Admin/AdminCourses";
+import AdminAuthor from "../components/Admin/AdminAuthor";
+import AdminLevels from "../components/Admin/AdminLevels";
+import AdminCategories from "../components/Admin/AdminCategories";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -42,6 +45,9 @@ const App = () => {
         </Route>
         <Route path="admin" element={<Admin />}>
           <Route path="courses" element={<AdminCourses />} />
+          <Route path="author" element={<AdminAuthor />} />
+          <Route path="levels" element={<AdminLevels />} />
+          <Route path="categories" element={<AdminCategories />} />
         </Route>
       </Route>
     )

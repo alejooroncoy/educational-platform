@@ -1,15 +1,18 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import AdminSidebar from "../components/Admin/AdminSidebar";
 import AnimatedOutlet from "../components/shared/AnimatedOutlet";
 
 const Admin = () => {
+  const location = useLocation();
   return (
     <main className="main">
       <div className="container container--admin">
         <AdminSidebar />
-        <AnimatePresence>
+        <AnimatePresence mode="popLayout">
           <motion.section
-            className="section"
+            key={location.key}
+            className="section section--courses"
             initial={{
               opacity: 0,
             }}

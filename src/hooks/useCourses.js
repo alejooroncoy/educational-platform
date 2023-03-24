@@ -1,8 +1,6 @@
 import { useState } from "react";
 
-export default function useCourses(
-  url = `https://apimocha.com/education-platform/courses/all`
-) {
+export default function useCourses(url = "http://127.0.0.1:5000/curso") {
   const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState([]);
   const getCourses = async () => {
@@ -16,5 +14,6 @@ export default function useCourses(
     courses,
     loading,
     getCourses,
+    setCourses,
   };
 }

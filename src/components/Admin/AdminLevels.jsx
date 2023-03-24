@@ -1,27 +1,27 @@
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { BsPlusLg } from "react-icons/bs";
-import useCourses from "../../hooks/useCourses";
+import useLevels from "../../hooks/useLevels";
 import useModal from "../../hooks/useModal";
-import CourseCard from "../Courses/CourseCard";
 import Modal from "../shared/Modal";
+import AdminLevelCard from "./AdminLevelCard";
+import AdminDescriptionForm from "./AdminDescriptionForm";
 import Spinner from "../shared/Spinner";
-import AdminCourseForm from "./AdminCourseForm";
-import Container from "../shared/Container";
 
-const AdminCourses = () => {
-  const { courses, getCourses, setCourses, loading } = useCourses();
+const AdminLevels = () => {
+  const { levels, getLevels, setLevels, loading } = useLevels();
   const { openModal, modal, overlay, closeModal } = useModal();
   const handleClickOpenModal = () => {
     openModal();
   };
 
   useEffect(() => {
-    getCourses();
+    getLevels();
   }, []);
+
   return (
     <div className="section-container section-container--courses">
-      <h2 className="section__title">Admin courses</h2>
+      <h2 className="section__title">Admin Levels</h2>
       <div className="cards">
         <AnimatePresence>
           {loading ? (
@@ -32,17 +32,15 @@ const AdminCourses = () => {
               className="spinner-container"
             >
               <Spinner className="spinner" />
-              <h2 className="spinner__title">Loading courses...</h2>
+              <h2 className="spinner__title">Loading levels...</h2>
             </motion.article>
           ) : (
             <>
-              {courses.map((course) => (
-                <CourseCard
-                  key={course.id}
-                  withModal
-                  setCourses={setCourses}
-                  course={course}
-                  Container={Container}
+              {levels.map((level) => (
+                <AdminLevelCard
+                  setLevels={setLevels}
+                  key={level.nivel_id}
+                  level={level}
                 />
               ))}
               <article
@@ -52,7 +50,7 @@ const AdminCourses = () => {
                 <div className="card-container card-container--add">
                   <div className="card__main card__main--add">
                     <BsPlusLg size={100} />
-                    <h2 className="card__title card__title--add">Add course</h2>
+                    <h2 className="card__title card__title--add">Add level</h2>
                   </div>
                 </div>
               </article>
@@ -61,13 +59,13 @@ const AdminCourses = () => {
         </AnimatePresence>
         <Modal closeModal={closeModal} modal={modal} overlay={overlay}>
           <header className="modal__header">
-            <h2 className="modal__title">Form Course</h2>
+            <h2 className="modal__title">Form Level</h2>
           </header>
           <div className="modal__main">
-            <AdminCourseForm
-              buttonText="Create course"
+            <AdminDescriptionForm
+              textButton="Create level"
               cb={(data) => {
-                setCourses((prevCourses) => [...prevCourses, data]);
+                setLevels((prevLevels) => [...prevLevels, data]);
               }}
             />
           </div>
@@ -77,4 +75,4 @@ const AdminCourses = () => {
   );
 };
 
-export default AdminCourses;
+export default AdminLevels;

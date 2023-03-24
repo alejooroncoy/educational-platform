@@ -1,5 +1,8 @@
 .form {
-  @include flex-fd-jc-ai-g(column, center, flex-start, 1rem);
+  @include flex-fd-jc-ai-g(row, flex-start, center, 1rem);
+  flex-wrap: wrap;
+  height: 20rem;
+  overflow: auto;
   &--auth {
     padding: 2rem 0;
     width: 100%;
@@ -17,6 +20,20 @@
       gap: 0.5rem;
       cursor: auto;
       width: 100%;
+    }
+
+    &--option {
+      flex: 1;
+    }
+    &--option-filter {
+      flex: 2.35;
+    }
+
+    &__subtitle {
+      margin: 0;
+      font-size: 0.938rem;
+      font-weight: 400;
+      color: #3e416d;
     }
 
     &__input {
@@ -106,13 +123,8 @@
     min-height: 5rem;
     resize: none;
   }
-}
-
-@keyframes scale-checked {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
+  @include laptop {
+    height: auto;
+    overflow: initial;
   }
 }

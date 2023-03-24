@@ -22,11 +22,9 @@ const Course = () => {
   const location = useLocation();
 
   const getCourse = async () => {
-    const response = await fetch(
-      `https://apimocha.com/education-platform/course/${id}`
-    );
+    const response = await fetch(`http://127.0.0.1:5000/cursoid/${id}`);
     const data = await response.json();
-    setCourse(data);
+    setCourse(data.content);
     setLoading(false);
   };
   useEffect(() => {
